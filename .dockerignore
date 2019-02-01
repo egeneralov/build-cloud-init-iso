@@ -2,3 +2,5 @@
 .gitlab-ci.yml
 .dockerignore
 Dockerfile
+Procfile
+Aptfile
