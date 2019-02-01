@@ -19,7 +19,7 @@ class cd:
     os.chdir(self.savedPath)
 
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['GET'])
 def hello():
   return '{"ok": true}'
 
