@@ -50,7 +50,12 @@ def template_uploaded():
   
   
   with open(iso, 'rb') as f:
-    return f.read()
+    result = f.read()
+  
+  os.system(
+    'rm -rf {} {}'.format(iso, tmp)
+  )
+  return result
 
 
 
