@@ -19,6 +19,10 @@ class cd:
     os.chdir(self.savedPath)
 
 
+@app.route('/', methods=['POST'])
+def hello():
+  return '{"ok": true}'
+
 
 @app.route('/', methods=['POST'])
 def template_uploaded():
