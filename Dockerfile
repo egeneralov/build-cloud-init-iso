@@ -13,4 +13,6 @@ RUN pip3 install --no-cache-dir -r /app/requirements.txt
 
 ADD . .
 
+ENV PORT=8080
+
 CMD python app.py

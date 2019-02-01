@@ -55,7 +55,7 @@ def template_uploaded():
 
 if __name__ == '__main__':
   app.run(
-    port = os.environ('PORT'),
+    port = os.environ.get('PORT'),
     host = '0.0.0.0',
     debug = True
   )
