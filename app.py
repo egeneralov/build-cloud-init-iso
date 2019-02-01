@@ -21,7 +21,8 @@ class cd:
 
 @app.route('/', methods=['GET'])
 def hello():
-  return '{"ok": true}'
+  with open('README.md') as f:
+    return f.read()
 
 
 @app.route('/', methods=['POST'])
