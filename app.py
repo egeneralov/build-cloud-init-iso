@@ -29,17 +29,23 @@ def hello():
 def template_uploaded():
 #   [ print(i) for i in request.files ]
   print(request.files)
+  print(request.form.to_dict())
+#   print(dir(request))
   
   for key in ['user-data', 'meta-data']:
     if key not in request.files:
-      abort(400)
+      if key not in request.form.to_dict().keys():
+        abort(400)
   
   tmp = mkdtemp()
   iso = mkstemp()[1]
   
   for key in ['user-data', 'meta-data']:
     with open('{}/{}'.format(tmp,key), 'w+') as f:
-      f.write(request.files[key].stream.read().decode())
+      try:
+        f.write(request.files[key].stream.read().decode())
+      except:
+        f.write(request.form[key])
 
   with cd(tmp):
     code = os.system(
