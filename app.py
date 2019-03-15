@@ -27,7 +27,8 @@ def hello():
 
 @app.route('/', methods=['POST'])
 def template_uploaded():
-  [ print(i) for i in request.files ]
+#   [ print(i) for i in request.files ]
+  print(request.files)
   
   for key in ['user-data', 'meta-data']:
     if key not in request.files:
